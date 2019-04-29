@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+$(document).ready(function(){
 var myRequest = new XMLHttpRequest();
 var list =[];
 myRequest.open('GET','getlist.php',false);
@@ -12,6 +13,6 @@ let data = JSON.parse(myRequest.responseText);
 for (let key in data) {
     list.push(data[key]);
 }
-for (let i=0;i<list.length;i++){
-    console.log(list[i]);
-}
+console.log(list);
+$(".list").autocomplete({source:list});
+});
